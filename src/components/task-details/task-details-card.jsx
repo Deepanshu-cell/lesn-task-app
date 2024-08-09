@@ -1,15 +1,16 @@
 import React from "react";
 import { TaskActionCard } from "./Task-action-card";
+import { ScrollArea } from "../ui/scroll-area";
 
 const TaskDetailsCard = ({ selectedTask }) => {
   return (
     <div className="h-[calc(100vh-10rem)] rounded-md ml-8 mt-2 mb-20 bg-white dark:bg-neutral-600 w-full p-5">
       
       {/* task actions here */}
-      <TaskActionCard />
+      <TaskActionCard selectedTask={selectedTask}/>
 
       {/* Task description */}
-      <div>
+      <ScrollArea className='h-[calc(100vh-36rem)] p-3 m-2'>
         <p className="text-neutral-500 dark:text-neutral-300">
           {selectedTask?.description || ""}
         </p>
@@ -37,7 +38,7 @@ const TaskDetailsCard = ({ selectedTask }) => {
           fugit similique amet? Repellendus labore, magni itaque dignissimos
           recusandae odio deserunt porro eaque commodi iure?
         </p>
-      </div>
+      </ScrollArea>
     </div>
   );
 };

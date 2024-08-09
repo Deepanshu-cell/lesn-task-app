@@ -23,7 +23,7 @@ const page = ({ params }) => {
     <div className="w-[40rem] text-left p-3">
       <Header
         breadcrumbArray={breadcrumbArray}
-        pageTitle={selectedTask?.title || ""}
+        pageTitle={"Task Details"}
       />
       <TaskDetailsCard selectedTask={selectedTask}/>
     </div>

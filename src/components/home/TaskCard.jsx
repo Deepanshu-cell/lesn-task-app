@@ -12,17 +12,11 @@ import {
 } from "@/components/ui/tooltip";
 import CustomDropdownMenu from "./dropdown-menu";
 import Link from "next/link";
-import { useRouter } from "next/navigation";
 import PriorityBadge from "../task-details/priority-badge";
 
 const TaskCard = ({ task }) => {
-  const router = useRouter();
-
   return (
-    <div
-      onClick={() => router.push(`/home/${task?.id}`)}
-      className="mt-3 max-w-full p-4 bg-white hover:bg-blue-100 border border-blue-200 hover:border-blue-400 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 cursor-pointer"
-    >
+    <div className="mt-3 max-w-full p-4 bg-white hover:bg-blue-100 border border-blue-200 hover:border-blue-400 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 cursor-pointer">
       <div className="flex items-center justify-between">
         {/* title here*/}
         <div className="flex items-center gap-x-3">

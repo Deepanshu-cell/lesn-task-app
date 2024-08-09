@@ -1,76 +1,83 @@
-
-import { cn } from "@/lib/utils";
-import { Button } from "@/components/ui/button";
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardFooter,
-  CardHeader,
-  CardTitle,
-} from "@/components/ui/card";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Switch } from "@/components/ui/switch";
-import { BellIcon, CheckIcon } from "lucide-react";
+import {
+  ArrowLeftRight,
+  BookmarkMinus,
+  CalendarCheck2,
+  MapPin,
+  Pencil,
+  Trash2,
+} from "lucide-react";
+import PriorityBadge from "./priority-badge";
+import { Button } from "../ui/button";
 
-const notifications = [
-  {
-    title: "Your call has been confirmed.",
-    description: "1 hour ago",
-  },
-  {
-    title: "You have a new message!",
-    description: "1 hour ago",
-  },
-  {
-    title: "Your subscription is expiring soon!",
-    description: "2 hours ago",
-  },
-];
-
-export function TaskActionCard({ className, ...props }) {
+export function TaskActionCard({ className, selectedTask }) {
   return (
     <Card className={className}>
-      <CardHeader>
-        <CardTitle>Notifications</CardTitle>
-        <CardDescription>You have 3 unread messages.</CardDescription>
+      <CardHeader className="flex items-center justify-between flex-row">
+        <CardTitle>{selectedTask?.title || ""}</CardTitle>
+        <div>
+          <Button
+            variant="ghost"
+            className="text-blue-400 hover:text-blue-400"
+            size="sm"
+          >
+            <Pencil size={20} />
+          </Button>
+          <Button
+            variant="ghost"
+            className="text-red-400 hover:text-red-400"
+            size="sm"
+          >
+            <Trash2 size={20} />
+          </Button>
+        </div>
       </CardHeader>
       <CardContent className="grid gap-4">
         <div className=" flex items-center space-x-4 rounded-md border p-4">
-          <BellIcon />
+          <ArrowLeftRight />
           <div className="flex-1 space-y-1">
             <p className="text-sm font-medium leading-none">
-              Push Notifications
+              Mark the status as completed
             </p>
-            <p className="text-sm text-muted-foreground">
-              Send notifications to device.
+            <p className="text-sm text-neutral-500">
+              you can revert your action as well.
             </p>
           </div>
           <Switch />
         </div>
         <div>
-          {notifications.map((notification, index) => (
-            <div
-              key={index}
-              className="mb-4 grid grid-cols-[25px_1fr] items-start pb-4 last:mb-0 last:pb-0"
-            >
-              <span className="flex h-2 w-2 translate-y-1 rounded-full bg-sky-500" />
-              <div className="space-y-1">
-                <p className="text-sm font-medium leading-none">
-                  {notification.title}
-                </p>
-                <p className="text-sm text-muted-foreground">
-                  {notification.description}
-                </p>
-              </div>
+          <div className="mb-4 grid grid-cols-[25px_1fr] items-start pb-4 last:mb-0 last:pb-0">
+            <CalendarCheck2 size={18} className="text-yellow-600" />
+            <div className="space-y-1">
+              <p className="text-sm font-medium leading-none">
+                {selectedTask?.due_date}
+              </p>
+              <p className="text-sm text-neutral-500">Due Date</p>
             </div>
-          ))}
+          </div>
+        </div>
+        <div>
+          <div className="mb-4 grid grid-cols-[25px_1fr] items-start pb-4 last:mb-0 last:pb-0">
+            <BookmarkMinus size={18} className="text-green-500" />
+            <div className="space-y-1">
+              <PriorityBadge priority={selectedTask?.priority || ""} />
+              <p className="text-sm text-neutral-500">Task Priority</p>
+            </div>
+          </div>
+        </div>
+        <div>
+          <div className="mb-4 grid grid-cols-[25px_1fr] items-start pb-4 last:mb-0 last:pb-0">
+            <MapPin size={18} className="text-red-500" />
+            <div className="space-y-1">
+              <p className="text-sm font-medium leading-none">
+                {selectedTask?.location_reminder || ""}
+              </p>
+              <p className="text-sm text-neutral-500">Location Reminder</p>
+            </div>
+          </div>
         </div>
       </CardContent>
-      <CardFooter>
-        <Button className="w-full">
-          <CheckIcon className="mr-2 h-4 w-4" /> Mark all as read
-        </Button>
-      </CardFooter>
     </Card>
   );
 }
