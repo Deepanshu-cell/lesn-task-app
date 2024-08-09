@@ -23,7 +23,7 @@ const page = () => {
       </div>
 
       <div className="mt-3">
-        <ScrollArea className="h-[calc(100vh-10rem)] rounded-md px-3">
+        <ScrollArea className="h-[calc(100vh-10rem)] rounded-md px-3 mb-20">
           {TasksArray?.map((task) => (
             <TaskCard task={task} key={task?.id} />
           ))}

@@ -1,4 +1,5 @@
 import Header from "@/components/layout/Header";
+import TaskDetailsCard from "@/components/task-details/task-details-card";
 import { TasksArray } from "@/lib/data";
 import React from "react";
 
@@ -19,11 +20,12 @@ const page = ({ params }) => {
   );
 
   return (
-    <div className="w-[32rem] text-left p-3">
+    <div className="w-[40rem] text-left p-3">
       <Header
         breadcrumbArray={breadcrumbArray}
         pageTitle={selectedTask?.title || ""}
       />
+      <TaskDetailsCard selectedTask={selectedTask}/>
     </div>
   );
 };

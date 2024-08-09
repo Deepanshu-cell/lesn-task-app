@@ -1,8 +1,7 @@
+"use client";
 import { BsListTask } from "react-icons/bs";
 import React from "react";
 import { Separator } from "@/components/ui/separator";
-import { Badge } from "@/components/ui/badge";
-import { cn } from "@/lib/utils";
 import { Checkbox } from "../ui/checkbox";
 
 import {
@@ -13,10 +12,17 @@ import {
 } from "@/components/ui/tooltip";
 import CustomDropdownMenu from "./dropdown-menu";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
+import PriorityBadge from "../task-details/priority-badge";
 
 const TaskCard = ({ task }) => {
+  const router = useRouter();
+
   return (
-    <div className="mt-3 max-w-full p-4 bg-blue-100 border border-blue-200 hover:border-blue-400 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 cursor-pointer">
+    <div
+      onClick={() => router.push(`/home/${task?.id}`)}
+      className="mt-3 max-w-full p-4 bg-white hover:bg-blue-100 border border-blue-200 hover:border-blue-400 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 cursor-pointer"
+    >
       <div className="flex items-center justify-between">
         {/* title here*/}
         <div className="flex items-center gap-x-3">
@@ -34,32 +40,21 @@ const TaskCard = ({ task }) => {
 
       <Separator className="my-1" />
 
-      {/* Due date & priority */}
+      {/* Due date & priority badge */}
       <div className="flex flex-row w-full h-4 my-2">
         <span className="text-xs text-neutral-700">
           Due Date: {task?.due_date}
         </span>
         <Separator orientation="vertical" className="mx-2" />
-        <Badge
-          variant="outline"
-          className={cn(
-            "border p-2 rounded-md",
-            task?.priority === "Low"
-              ? "border-orange-300 dark:border-orange-500 text-orange-600 bg-orange-100"
-              : task?.priority === "Medium"
-              ? "border-red-400 dark:border-red-500 text-red-400 bg-red-100"
-              : "border-red-700 dark:border-red-700 text-red-600 bg-red-100"
-          )}
-        >
-          {task?.priority || ""}
-        </Badge>
+        {/* priority badge */}
+        <PriorityBadge priority={task?.priority || ""} />
       </div>
 
       {/*Description here  */}
       <TooltipProvider>
         <Tooltip>
           <TooltipTrigger asChild>
-            <p className="mb-3 font-normal text-gray-500 dark:text-gray-400 text-ellipsis line-clamp-1">
+            <p className="mb-3 text-sm font-light text-gray-500 dark:text-gray-400 text-ellipsis line-clamp-1">
               {task?.description || ""}
             </p>
           </TooltipTrigger>

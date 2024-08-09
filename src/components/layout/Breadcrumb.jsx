@@ -2,7 +2,6 @@ import React from "react";
 import {
   Breadcrumb,
   BreadcrumbItem,
-  BreadcrumbLink,
   BreadcrumbList,
   BreadcrumbPage,
   BreadcrumbSeparator,
@@ -13,23 +12,25 @@ const CustomBreadcrumb = ({ breadcrumbArray }) => {
   return (
     <Breadcrumb>
       <BreadcrumbList>
-        {breadcrumbArray?.map((item) => (
-          <>
-            <BreadcrumbItem>
-              {item?.link ? (
-                <Link
-                  href={item?.link || "#"}
-                  className="transition-colors hover:text-neutral-950 dark:hover:text-neutral-50"
-                >
-                  {item?.name || ""}
-                </Link>
-              ) : (
-                <BreadcrumbPage>{item?.name || ""}</BreadcrumbPage>
-              )}
-            </BreadcrumbItem>
-            <BreadcrumbSeparator />
-          </>
-        ))}
+        {breadcrumbArray?.map((Item) => {
+          return (
+            <>
+              <BreadcrumbItem>
+                {Item?.link ? (
+                  <Link
+                    href={Item?.link || "#"}
+                    className="transition-colors hover:text-neutral-950 dark:hover:text-neutral-50"
+                  >
+                    {Item?.name || ""}
+                  </Link>
+                ) : (
+                  <BreadcrumbPage>{Item?.name || ""}</BreadcrumbPage>
+                )}
+              </BreadcrumbItem>
+              <BreadcrumbSeparator />
+            </>
+          );
+        })}
       </BreadcrumbList>
     </Breadcrumb>
   );
