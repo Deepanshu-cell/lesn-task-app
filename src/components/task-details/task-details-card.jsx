@@ -1,34 +1,12 @@
 import React from "react";
-import { Separator } from "../ui/separator";
-import PriorityBadge from "./priority-badge";
-import { MapPin } from "lucide-react";
-import CustomDropdownMenu from "../home/dropdown-menu";
+import { TaskActionCard } from "./Task-action-card";
 
 const TaskDetailsCard = ({ selectedTask }) => {
   return (
     <div className="h-[calc(100vh-10rem)] rounded-md ml-8 mt-2 mb-20 bg-white dark:bg-neutral-600 w-full p-5">
-      <div className="flex items-center justify-between mb-4 px-1">
-        {/* due date , priority*/}
-        <div className="flex items-center gap-x-2 h-3 mt-1">
-          <span>Due Date : {selectedTask?.due_date || "NA"}</span>
-          <Separator
-            orientation="vertical"
-            className="border border-neutral-300"
-          />
-          <PriorityBadge priority={selectedTask?.priority || ""} />
-        </div>
-
-        {/* location reminder */}
-        <div className="flex items-center gap-x-1">
-          <MapPin size={16} className="text-red-400 dark:text-blue-600" />
-          <span className="text-blue-400 text-sm font-semibold">
-            {selectedTask?.location_reminder || ""}
-          </span>
-          <CustomDropdownMenu />
-        </div>
-
-        {/* edit and delete actions */}
-      </div>
+      
+      {/* task actions here */}
+      <TaskActionCard />
 
       {/* Task description */}
       <div>
