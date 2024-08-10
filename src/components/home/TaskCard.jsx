@@ -29,7 +29,7 @@ const TaskCard = ({ task }) => {
         </div>
 
         {/*Custom Dropdown-menu */}
-        <CustomDropdownMenu />
+        <CustomDropdownMenu task={task}/>
       </div>
 
       <Separator className="my-1" />

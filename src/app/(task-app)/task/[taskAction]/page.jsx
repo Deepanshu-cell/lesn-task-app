@@ -1,5 +1,6 @@
 import Header from "@/components/layout/Header";
 import { TaskForm } from "@/components/task-form/TaskForm";
+import { TasksArray } from "@/lib/data";
 import React from "react";
 
 const page = ({ params }) => {
@@ -13,6 +14,10 @@ const page = ({ params }) => {
     },
   ];
 
+  const currentTask = TasksArray?.find(
+    (task) => task?.id == params?.taskAction
+  );
+
   return (
     <div className="w-[48rem] text-left p-3">
       <Header
@@ -20,7 +25,7 @@ const page = ({ params }) => {
         pageTitle={params?.taskAction === "add" ? "Add Task" : "Edit Task"}
       />
 
-      <TaskForm />
+      <TaskForm defaultValue={currentTask}/>
     </div>
   );
 };

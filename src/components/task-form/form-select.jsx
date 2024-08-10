@@ -14,7 +14,14 @@ import {
   FormLabel,
 } from "../ui/form";
 
-const FormSelect = ({ name, placeholder, control, label, error, options }) => {
+const FormSelect = ({
+  name,
+  placeholder,
+  control,
+  label,
+  error,
+  options,
+}) => {
   return (
     <FormField
       control={control}
@@ -23,11 +30,11 @@ const FormSelect = ({ name, placeholder, control, label, error, options }) => {
         <FormItem>
           <FormLabel>{label}</FormLabel>
           <FormControl>
-            <Select>
+            <Select onValueChange={field.onChange} defaultValue={field.value}>
               <SelectTrigger className="w-[220px]">
                 <SelectValue placeholder={placeholder} />
               </SelectTrigger>
-              <SelectContent>
+              <SelectContent ref={field.ref}>
                 {options?.map((option) => (
                   <SelectItem value={option?.value}>{option?.label}</SelectItem>
                 ))}

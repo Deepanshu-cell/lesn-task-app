@@ -8,7 +8,7 @@ import {
 } from "../ui/form";
 import { DatePicker } from "../ui/date-picker";
 
-const FormDatePicker = ({ name, placeholder, control, label, type, error }) => {
+const FormDatePicker = ({ name, placeholder, control, label, error }) => {
   return (
     <FormField
       control={control}
@@ -17,7 +17,7 @@ const FormDatePicker = ({ name, placeholder, control, label, type, error }) => {
         <FormItem>
           <FormLabel className='block mt-2'>{label}</FormLabel>
           <FormControl>
-            <DatePicker placeholder={placeholder} {...field} />
+            <DatePicker placeholder={placeholder} field={field} />
           </FormControl>
           <FormDescription className="text-red-500">{error}</FormDescription>
         </FormItem>

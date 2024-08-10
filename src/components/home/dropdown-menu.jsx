@@ -7,8 +7,10 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 import { EllipsisVertical, Pencil, Trash2 } from "lucide-react";
+import { useRouter } from "next/navigation";
 
-const CustomDropdownMenu = () => {
+const CustomDropdownMenu = ({ task }) => {
+  const router = useRouter();
   return (
     <div>
       <DropdownMenu>
@@ -18,7 +20,10 @@ const CustomDropdownMenu = () => {
         <DropdownMenuContent>
           <DropdownMenuLabel>⌘ Task Actions</DropdownMenuLabel>
           <DropdownMenuSeparator className="border border-neutral-300 dark:border-neutral-500" />
-          <DropdownMenuItem className="flex justify-between">
+          <DropdownMenuItem
+            className="flex justify-between"
+            onClick={() => router.push(`/task/${task?.id}`)}
+          >
             <span>Edit</span>
             <span>
               <Pencil

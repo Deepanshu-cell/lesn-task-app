@@ -16,9 +16,7 @@ const formSchema = z.object({
   description: z.string().min(10, {
     message: "title must be at least 10 characters.",
   }),
-  due_date: z.string().min(4, {
-    message: "title must be at least 4 characters.",
-  }),
+  due_date: z.string().date(),
   priority: z.string().min(1, {
     message: "Priority is required",
   }),
@@ -43,11 +41,11 @@ const selectOptions = [
   },
 ];
 
-export function TaskForm() {
+export function TaskForm({ defaultValue }) {
   // 1. Define your form.
   const form = useForm({
     resolver: zodResolver(formSchema),
-    defaultValues: {
+    defaultValues: defaultValue || {
       title: "",
       description: "",
       due_date: "",
