@@ -1,6 +1,7 @@
 import { Inter } from "next/font/google";
 import "./globals.css";
 import { cn } from "@/lib/utils";
+import { MyThemeContextProvider } from "@/context/theme-context";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -11,8 +12,12 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en" className="dark">
-      <body className={cn('bg-neutral-100 dark:bg-gray-900', inter.className)}>{children}</body>
-    </html>
+    <MyThemeContextProvider>
+      <html lang="en">
+        <body className={cn('bg-neutral-100 dark:bg-gray-900 scroll-smooth', inter.className)}>
+          {children}
+        </body>
+      </html>
+    </MyThemeContextProvider>
   );
 }

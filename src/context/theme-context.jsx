@@ -1,3 +1,4 @@
+"use client";
 import {
   getLocalStorage,
   isLocalStorageEmpty,
@@ -8,6 +9,7 @@ import { createContext, useEffect, useState } from "react";
 const MyThemeContext = createContext({
   isDarkTheme: false,
   toggleThemeHandler: () => {},
+  setThemeHandler: () => {},
 });
 
 export function MyThemeContextProvider(props) {
@@ -24,7 +26,7 @@ export function MyThemeContextProvider(props) {
 
       if (isDarkTheme) {
         document?.querySelector("html")?.classList?.add("dark");
-        setIsDarkTheme(true);
+        setIsDarkTheme(isDarkTheme);
       }
     }
   };
@@ -36,14 +38,25 @@ export function MyThemeContextProvider(props) {
     // Getting from local storage toggling and then modifying html , storing to local state and storage
     setIsDarkTheme(!isDarkTheme);
     document?.querySelector("html")?.classList?.toggle("dark");
-    setLocalStorage(!isDarkTheme);
+    setLocalStorage("isDarkTheme", !isDarkTheme);
+  };
+
+  // Theme handler function for setting theme send in params --> used for Theme selector
+  const setThemeHandler = (theme) => {
+    const isDark = theme === "dark";
+    setIsDarkTheme(isDark);
+    if (isDark) document?.querySelector("html")?.classList?.add("dark");
+    else document?.querySelector("html")?.classList?.remove("dark");
+    setLocalStorage("isDarkTheme", isDark);
   };
 
   return (
     <MyThemeContext.Provider
-      value={{ isDarkTheme: false, toggleThemeHandler }}
+      value={{ isDarkTheme, toggleThemeHandler, setThemeHandler }}
     >
-        {props.children}
+      {props.children}
     </MyThemeContext.Provider>
   );
 }
+
+export default MyThemeContext;

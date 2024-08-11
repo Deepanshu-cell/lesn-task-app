@@ -5,6 +5,7 @@ import React from "react";
 import { MdDashboardCustomize } from "react-icons/md";
 import { Plus } from "lucide-react";
 import { useRouter } from "next/navigation";
+import { SettingsPopover } from "./setting-popover";
 
 const Navbar = () => {
   const router = useRouter();
@@ -80,19 +81,21 @@ const Navbar = () => {
         </div>
 
         {/* settings */}
-        <Link
-          href={"/settings"}
-          data-tooltip-target="tooltip-settings"
-          type="button"
-          className="inline-flex flex-col items-center justify-center px-5 hover:bg-gray-50 dark:hover:bg-gray-800 group"
-        >
-          <IoMdSettings
-            size={28}
-            className="text-gray-600 dark:text-gray-300"
-            title="Dashboard"
-          />
-          <span className="sr-only">Settings</span>
-        </Link>
+        <SettingsPopover>
+          <span
+            href={"/settings"}
+            data-tooltip-target="tooltip-settings"
+            type="button"
+            className="inline-flex flex-col items-center justify-center px-5 hover:bg-gray-50 dark:hover:bg-gray-800 group cursor-pointer"
+          >
+            <IoMdSettings
+              size={28}
+              className="text-gray-600 dark:text-gray-300"
+              title="Dashboard"
+            />
+            <span className="sr-only">Settings</span>
+          </span>
+        </SettingsPopover>
         <div
           id="tooltip-settings"
           role="tooltip"
