@@ -15,7 +15,7 @@ const FormDatePicker = ({ name, placeholder, control, label, error }) => {
       name={name}
       render={({ field }) => (
         <FormItem>
-          <FormLabel className='block mt-2'>{label}</FormLabel>
+          <FormLabel className='block mt-2 dark:text-neutral-300'>{label}</FormLabel>
           <FormControl>
             <DatePicker placeholder={placeholder} field={field} />
           </FormControl>

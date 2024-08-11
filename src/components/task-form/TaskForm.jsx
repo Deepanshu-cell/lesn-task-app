@@ -63,7 +63,7 @@ export function TaskForm({ defaultValue }) {
   const errors = form?.formState?.errors;
 
   return (
-    <div className="h-[calc(100vh-10rem)] rounded-md p-5 mb-20 mt-3 bg-white">
+    <div className="h-[calc(100vh-10rem)] rounded-md p-5 mb-20 mt-3 bg-white dark:bg-gray-700">
       <Form {...form}>
         <form onSubmit={form.handleSubmit(onSubmit)}>
           <div className="grid md:grid-cols-2 grid-cols-1 gap-2 mb-3">
@@ -116,7 +116,7 @@ export function TaskForm({ defaultValue }) {
               error={errors?.due_date?.message}
             />
           </div>
-          <Button type="submit" disabled={form.isSubmitting}>
+          <Button type="submit" disabled={form.isSubmitting} className='dark:bg-blue-600 dark:text-white dark:hover:bg-blue-700'>
             Save
           </Button>
         </form>

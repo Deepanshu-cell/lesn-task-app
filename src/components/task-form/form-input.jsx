@@ -15,11 +15,16 @@ const FormInput = ({ name, placeholder, control, label, type, error }) => {
       name={name}
       render={({ field }) => (
         <FormItem>
-          <FormLabel>{label}</FormLabel>
+          <FormLabel className='dark:text-neutral-300'>{label}</FormLabel>
           <FormControl>
-            <Input placeholder={placeholder} {...field} type={type}/>
+            <Input
+              placeholder={placeholder}
+              {...field}
+              type={type}
+              className="dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-100 dark:text-white dark:focus:ring-blue-300 dark:focus:border-blue-300"
+            />
           </FormControl>
-          <FormDescription className='text-red-500'>{error}</FormDescription>
+          <FormDescription className="text-red-500">{error}</FormDescription>
         </FormItem>
       )}
     />
