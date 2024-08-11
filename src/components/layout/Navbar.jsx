@@ -10,7 +10,7 @@ const Navbar = () => {
   const router = useRouter();
 
   return (
-    <div className="fixed z-50 w-full h-16 max-w-lg -translate-x-1/2 bg-blue-100 border border-gray-200 rounded-full bottom-4 left-1/2 dark:bg-gray-700 dark:border-gray-600">
+    <div className="fixed z-50 w-full h-16 max-w-lg -translate-x-1/2 bg-blue-100 border border-gray-200 rounded-full bottom-4 left-1/2 dark:bg-gray-600 dark:border-gray-500">
       <div className="grid h-full max-w-lg grid-cols-5 mx-auto">
         {/* Home */}
         <Link
@@ -19,7 +19,11 @@ const Navbar = () => {
           type="button"
           className="inline-flex flex-col items-center justify-center px-5 rounded-s-full hover:bg-gray-50 dark:hover:bg-gray-800 group"
         >
-          <IoIosHome size={22} className="text-blue-600" title="Home" />
+          <IoIosHome
+            size={28}
+            className="text-blue-600 dark:text-blue-300"
+            title="Home"
+          />
           <span className="sr-only">Home</span>
         </Link>
         <div
@@ -39,8 +43,8 @@ const Navbar = () => {
           className="inline-flex flex-col items-center justify-center px-5 hover:bg-gray-50 dark:hover:bg-gray-800 group"
         >
           <MdDashboardCustomize
-            size={22}
-            className="text-green-600"
+            size={28}
+            className="text-green-600 dark:text-green-400"
             title="Dashboard"
           />
           <span className="sr-only">Wallet</span>
@@ -60,7 +64,7 @@ const Navbar = () => {
             onClick={() => router.push("/task/add")}
             data-tooltip-target="tooltip-new"
             type="button"
-            className="inline-flex items-center justify-center w-10 h-10 font-medium bg-blue-600 rounded-full hover:bg-blue-700 group focus:ring-4 focus:ring-blue-300 focus:outline-none dark:focus:ring-blue-800"
+            className="inline-flex items-center justify-center w-16 h-16 font-medium bg-blue-600 dark:hover:bg-blue-600 dark:bg-blue-500 rounded-full hover:bg-blue-700 group focus:ring-4 focus:ring-blue-300 focus:outline-none dark:focus:ring-blue-800"
           >
             <Plus className="text-white" />
             <span className="sr-only">New item</span>
@@ -83,8 +87,8 @@ const Navbar = () => {
           className="inline-flex flex-col items-center justify-center px-5 hover:bg-gray-50 dark:hover:bg-gray-800 group"
         >
           <IoMdSettings
-            size={22}
-            className="text-neutral-600"
+            size={28}
+            className="text-gray-600 dark:text-gray-300"
             title="Dashboard"
           />
           <span className="sr-only">Settings</span>

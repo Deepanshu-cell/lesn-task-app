@@ -27,10 +27,10 @@ const LoginLeftSection = () => {
               <FaCircleCheck className="text-blue-500" size={20} />
             </div>
             <div className="grid grid-cols-1">
-              <span className="text-2xl font-bold text-neutral-800 dark:text-neutral-400">
+              <span className="text-2xl font-bold text-neutral-800 dark:text-neutral-100">
                 Get Started in No Time
               </span>
-              <span className="line-clamp-1 text-neutral-600">
+              <span className="line-clamp-1 text-neutral-600 dark:text-neutral-400">
                 Integrate with developer-friendly APIs or choose low-code.
               </span>
             </div>
@@ -40,10 +40,10 @@ const LoginLeftSection = () => {
               <FaCircleCheck className="text-blue-500" size={20} />
             </div>
             <div className="grid grid-cols-1">
-              <span className="text-2xl font-bold text-neutral-800 dark:text-neutral-400">
+              <span className="text-2xl font-bold text-neutral-800 dark:text-neutral-100">
                 Join a Growing Community
               </span>
-              <span className="line-clamp-2 text-neutral-600">
+              <span className="line-clamp-2 text-neutral-600 dark:text-neutral-400">
                 Trusted by startups and enterprises alike, Lens Corporation's.
               </span>
             </div>
@@ -53,10 +53,10 @@ const LoginLeftSection = () => {
               <FaCircleCheck className="text-blue-500" size={20} />
             </div>
             <div className="grid grid-cols-1">
-              <span className="text-2xl font-bold text-neutral-800 dark:text-neutral-400">
+              <span className="text-2xl font-bold text-neutral-800 dark:text-neutral-100">
                 Flexible for Any Business Model
               </span>
-              <span className="line-clamp-1 text-neutral-600">
+              <span className="line-clamp-1 text-neutral-600 dark:text-neutral-400">
                 Keep your Tasks & proprietary secured with us.
               </span>
             </div>
@@ -66,10 +66,10 @@ const LoginLeftSection = () => {
               <FaCircleCheck className="text-blue-500" size={20} />
             </div>
             <div className="grid grid-cols-1">
-              <span className="text-2xl font-bold text-neutral-800 dark:text-neutral-400">
+              <span className="text-2xl font-bold text-neutral-800 dark:text-neutral-100">
                 Streamline Collaboration
               </span>
-              <span className="line-clamp-1 text-neutral-600">
+              <span className="line-clamp-1 text-neutral-600 dark:text-neutral-400">
                 Empower your team with tools designed for efficiency and
                 effective communication.
               </span>
