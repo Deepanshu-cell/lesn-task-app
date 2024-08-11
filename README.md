@@ -1,36 +1,73 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+Lesn Task App
+Welcome to the Lesn Task App repository! This project is built using Next.js, Tailwind CSS, and Shadcn UI. The Lesn Task App is a task management application designed to help users efficiently organize and manage their tasks.
 
-## Getting Started
+Features
+Task Management: Create, update, and delete tasks.
+Responsive Design: Fully responsive UI using Tailwind CSS.
+Shadcn UI Components: Modern and accessible UI components.
+Next.js Powered: Fast and optimized with server-side rendering (SSR) and static site generation (SSG).
+Technologies Used
+Next.js: A React framework that enables server-side rendering and static site generation.
+Tailwind CSS: A utility-first CSS framework for creating custom designs without leaving your HTML.
+Shadcn UI: A component library that provides pre-built and accessible UI components.
+Getting Started
+Follow these instructions to get a copy of the project up and running on your local machine for development and testing purposes.
 
-First, run the development server:
+Prerequisites
+Make sure you have the following installed on your system:
 
-```bash
+Node.js (version 14.x or later)
+npm (version 6.x or later) or Yarn
+Installation
+Clone the repository:
+
+bash
+Copy code
+git clone https://github.com/Deepanshu-cell/lesn-task-app.git
+cd lesn-task-app
+Install dependencies:
+
+bash
+Copy code
+npm install
+Or if you prefer Yarn:
+
+bash
+Copy code
+yarn install
+Run the development server:
+
+bash
+Copy code
 npm run dev
-# or
+Or with Yarn:
+
+bash
+Copy code
 yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+Open http://localhost:3000 in your browser to see the application running.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Building for Production
+To build the project for production, run:
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+bash
+Copy code
+npm run build
+Or with Yarn:
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+bash
+Copy code
+yarn build
+This will create an optimized production build in the out directory.
 
-## Learn More
+Deployment
+This project can be easily deployed on platforms like Vercel, Netlify, or any other hosting service that supports Next.js. Follow the specific instructions for your chosen platform to deploy the app.
 
-To learn more about Next.js, take a look at the following resources:
+Contributing
+Contributions are welcome! If you'd like to contribute to this project, please fork the repository and create a pull request with your changes. Ensure that your code follows the project's coding standards and that you test your changes before submitting.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+License
+This project is licensed under the MIT License. See the LICENSE file for details.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+Contact
+For any inquiries or questions, please reach out to deepanshukhorwal779@gmail.com.
