@@ -1,20 +1,19 @@
-import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import {
-  Popover,
-  PopoverContent,
-  PopoverTrigger,
-} from "@/components/ui/popover";
+  HoverCard,
+  HoverCardContent,
+  HoverCardTrigger,
+} from "@/components/ui/hover-card";
 import { ThemeSelector } from "./theme-selector";
 import { Switch } from "../ui/switch";
 import Link from "next/link";
 import { LogOut } from "lucide-react";
 
 export function SettingsPopover({ children }) {
-  return (
-    <Popover>
-      <PopoverTrigger asChild>{children}</PopoverTrigger>
-      <PopoverContent className="w-80">
+  return (  
+    <HoverCard>
+      <HoverCardTrigger  asChild>{children}</HoverCardTrigger >
+      <HoverCardContent  className="w-80">
         <div className="grid gap-4">
           <div className="space-y-2">
             <h4 className="font-medium leading-none">App Settings</h4>
@@ -43,7 +42,7 @@ export function SettingsPopover({ children }) {
             </Link>
           </div>
         </div>
-      </PopoverContent>
-    </Popover>
+      </HoverCardContent >
+    </HoverCard>
   );
 }
