@@ -19,9 +19,9 @@ import {
 } from "@/components/ui/chart";
 
 const chartData = [
-  { Priority: "Low", tasks: 6, fill: "rgb(37 99 235)" },
-  { Priority: "Medium", tasks: 4, fill: "#c7d2fe" },
-  { Priority: "High", tasks: 10, fill: "#c7d2fe" },
+  { Priority: "Low", tasks: 6, fill: "#93c5fd" },
+  { Priority: "Medium", tasks: 4, fill: "#60a5fa" },
+  { Priority: "High", tasks: 10, fill: "#2563eb" },
 ];
 
 const chartConfig = {
@@ -30,15 +30,15 @@ const chartConfig = {
   },
   Low: {
     label: "Low",
-    color: "rgb(37 99 235)",
+    color: "#93c5fd",
   },
   Medium: {
-    label: "Pending",
-    color: "#c7d2fe",
+    label: "Medium",
+    color: "#60a5fa",
   },
   High: {
-    label: "Pending",
-    color: "#c7d2fe",
+    label: "High",
+    color: "#2563eb",
   },
 };
 
@@ -50,8 +50,8 @@ export function TaskPriorityChart() {
   return (
     <Card className="flex flex-col">
       <CardHeader className="items-center pb-0">
-        <CardTitle>Pending / Completed Tasks</CardTitle>
-        <CardDescription>January - June 2024</CardDescription>
+        <CardTitle>Task Priority Distribution Chart</CardTitle>
+        <CardDescription>Priority Distribution</CardDescription>
       </CardHeader>
       <CardContent className="flex-1 pb-0">
         <ChartContainer
