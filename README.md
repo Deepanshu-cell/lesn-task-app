@@ -19,44 +19,34 @@ Make sure you have the following installed on your system:
 Node.js (version 14.x or later)
 npm (version 6.x or later) or Yarn
 Installation
-Clone the repository:
 
-bash
-Copy code
+1. Clone the repository:
+
 git clone https://github.com/Deepanshu-cell/lesn-task-app.git
 cd lesn-task-app
-Install dependencies:
 
-bash
-Copy code
+2. Install dependencies:
+
 npm install
 Or if you prefer Yarn:
 
-bash
-Copy code
 yarn install
-Run the development server:
 
-bash
-Copy code
+3. Run the development server:
+   
 npm run dev
+
 Or with Yarn:
 
-bash
-Copy code
 yarn dev
 Open http://localhost:3000 in your browser to see the application running.
 
-Building for Production
+(**) Building for Production
 To build the project for production, run:
 
-bash
-Copy code
 npm run build
 Or with Yarn:
 
-bash
-Copy code
 yarn build
 This will create an optimized production build in the out directory.
 
