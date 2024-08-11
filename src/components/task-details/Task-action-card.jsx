@@ -12,9 +12,13 @@ import {
 import PriorityBadge from "./priority-badge";
 import { Button } from "../ui/button";
 import { useRouter } from "next/navigation";
+import { useDispatch } from "react-redux";
+import { toggleTaskCompletion } from "@/redux/slices/task-slice";
 
 export function TaskActionCard({ className, selectedTask }) {
   const router = useRouter();
+  const dispatch = useDispatch();
+
   return (
     <Card className={className}>
       {/* Edit and Delete action buttons */}
@@ -50,7 +54,12 @@ export function TaskActionCard({ className, selectedTask }) {
               you can revert your action as well.
             </p>
           </div>
-          <Switch />
+          <Switch
+            defaultChecked={selectedTask?.isCompleted}
+            onCheckedChange={() =>
+              dispatch(toggleTaskCompletion(selectedTask.id))
+            }
+          />
         </div>
 
         {/* Due Date, Task Priority & Location Reminder part */}

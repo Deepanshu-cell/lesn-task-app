@@ -13,8 +13,12 @@ import {
 import CustomDropdownMenu from "./dropdown-menu";
 import Link from "next/link";
 import PriorityBadge from "../task-details/priority-badge";
+import { useDispatch } from "react-redux";
+import { toggleTaskCompletion } from "@/redux/slices/task-slice";
 
 const TaskCard = ({ task }) => {
+  const dispatch = useDispatch();
+
   return (
     <div className="mt-3 max-w-full p-4 bg-white hover:bg-blue-100 border border-blue-200 hover:border-blue-400 rounded-lg shadow dark:bg-gray-700 dark:border-gray-500 cursor-pointer dark:hover:border-gray-300">
       <div className="flex items-center justify-between">
@@ -29,17 +33,20 @@ const TaskCard = ({ task }) => {
         </div>
 
         {/*Custom Dropdown-menu */}
-        <CustomDropdownMenu task={task}/>
+        <CustomDropdownMenu task={task} />
       </div>
 
-      <Separator className="my-1"/>
+      <Separator className="my-1" />
 
       {/* Due date & priority badge */}
       <div className="flex flex-row w-full h-4 my-2">
         <span className="text-xs text-neutral-700 dark:text-neutral-100">
           Due Date: {task?.due_date}
         </span>
-        <Separator orientation="vertical" className="mx-2 dark:bg-neutral-400" />
+        <Separator
+          orientation="vertical"
+          className="mx-2 dark:bg-neutral-400"
+        />
         {/* priority badge */}
         <PriorityBadge priority={task?.priority || ""} />
       </div>
@@ -61,7 +68,12 @@ const TaskCard = ({ task }) => {
       {/*task checkbox and view details */}
       <div className="flex h-4">
         <div className="flex items-center space-x-2">
-          <Checkbox id="terms" className="" />
+          <Checkbox
+            id="terms"
+            className=""
+            defaultChecked={task?.isCompleted || false}
+            onCheckedChange={() => dispatch(toggleTaskCompletion(task.id))}
+          />
           <label
             htmlFor="terms"
             className="text-sm dark:text-gray-400 font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
@@ -69,7 +81,10 @@ const TaskCard = ({ task }) => {
             Mark the Task as completed
           </label>
         </div>
-        <Separator orientation="vertical" className="mx-2 dark:bg-neutral-400" />
+        <Separator
+          orientation="vertical"
+          className="mx-2 dark:bg-neutral-400"
+        />
         <Link
           href={`/home/${task?.id}`}
           className="inline-flex font-medium items-center text-blue-600 dark:text-blue-400 hover:underline text-sm"

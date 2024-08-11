@@ -25,7 +25,7 @@ const page = ({ params }) => {
         pageTitle={params?.taskAction === "add" ? "Add Task" : "Edit Task"}
       />
 
-      <TaskForm defaultValue={currentTask}/>
+      <TaskForm defaultValue={currentTask} taskAction={params?.taskAction}/>
     </div>
   );
 };

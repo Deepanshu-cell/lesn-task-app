@@ -1,9 +1,10 @@
+"use client";
 import Searchbar from "@/components/home/Searchbar";
 import TaskCard from "@/components/home/TaskCard";
 import Header from "@/components/layout/Header";
 import { ScrollArea } from "@/components/ui/scroll-area";
-import { TasksArray } from "@/lib/data";
 import React from "react";
+import { useSelector } from "react-redux";
 const breadcrumbArray = [
   {
     name: "Home",
@@ -15,6 +16,8 @@ const breadcrumbArray = [
 ];
 
 const page = () => {
+  const { tasks } = useSelector((state) => state.tasks);
+
   return (
     <div className="w-[48rem] text-left p-3">
       <Header breadcrumbArray={breadcrumbArray} pageTitle={"Task Manager"} />
@@ -24,9 +27,11 @@ const page = () => {
 
       <div className="mt-3">
         <ScrollArea className="h-[calc(100vh-10rem)] rounded-md px-3 mb-20">
-          {TasksArray?.map((task) => (
-            <TaskCard task={task} key={task?.id} />
-          ))}
+          {Array.isArray(tasks) && tasks?.length > 0 ? (
+            tasks?.map((task) => <TaskCard task={task} key={task?.id} />)
+          ) : (
+            <div>No Tasks Found</div>
+          )}
         </ScrollArea>
       </div>
     </div>

@@ -7,6 +7,10 @@ import { Button } from "../ui/button";
 import FormDatePicker from "./form-date-picker";
 import FormSelect from "./form-select";
 import FormInput from "./form-input";
+import { useDispatch, useSelector } from "react-redux";
+import { addTask, editTask } from "@/redux/slices/task-slice";
+import { useRouter } from "next/navigation";
+import { format } from "date-fns";
 
 // form zod schema
 const formSchema = z.object({
@@ -16,7 +20,7 @@ const formSchema = z.object({
   description: z.string().min(10, {
     message: "title must be at least 10 characters.",
   }),
-  due_date: z.string().date(),
+  due_date: z.any(),
   priority: z.string().min(1, {
     message: "Priority is required",
   }),
@@ -41,7 +45,11 @@ const selectOptions = [
   },
 ];
 
-export function TaskForm({ defaultValue }) {
+export function TaskForm({ defaultValue, taskAction }) {
+  const dispatch = useDispatch();
+  const { tasks } = useSelector((state) => state.tasks);
+  const router = useRouter();
+
   // 1. Define your form.
   const form = useForm({
     resolver: zodResolver(formSchema),
@@ -56,8 +64,28 @@ export function TaskForm({ defaultValue }) {
 
   // 2. Define a submit handler.
   function onSubmit(values) {
-    // Do something with the form values.
-    console.log(values);
+    if (taskAction === "add") {
+      // adding task via dispatch add task function
+      dispatch(
+        addTask({
+          ...values,
+          id: tasks?.length + 1001,
+          due_date: format(values?.due_date, "yyyy-MM-dd"),
+        })
+      );
+    } else {
+      // editing task here
+      dispatch(
+        editTask({
+          ...values,
+          id: defaultValue?.id,
+          due_date: format(values?.due_date, "yyyy-MM-dd"),
+        })
+      );
+    }
+
+    // successfully redirecting it to home
+    router.push("/home");
   }
 
   const errors = form?.formState?.errors;
@@ -114,9 +142,14 @@ export function TaskForm({ defaultValue }) {
               control={form.control}
               label={"Due Date"}
               error={errors?.due_date?.message}
+              setDate={form.setValue}
             />
           </div>
-          <Button type="submit" disabled={form.isSubmitting} className='dark:bg-blue-600 dark:text-white dark:hover:bg-blue-700'>
+          <Button
+            type="submit"
+            disabled={form.isSubmitting}
+            className="dark:bg-blue-600 dark:text-white dark:hover:bg-blue-700"
+          >
             Save
           </Button>
         </form>
