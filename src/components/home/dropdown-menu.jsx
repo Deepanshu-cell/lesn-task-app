@@ -15,7 +15,7 @@ const CustomDropdownMenu = ({ task }) => {
     <div>
       <DropdownMenu>
         <DropdownMenuTrigger>
-          <EllipsisVertical size={15} />
+          <EllipsisVertical size={15} className="dark:text-neutral-300"/>
         </DropdownMenuTrigger>
         <DropdownMenuContent>
           <DropdownMenuLabel>⌘ Task Actions</DropdownMenuLabel>

@@ -39,7 +39,7 @@ const chartConfig = {
 
 export function TaskDistributionChart() {
   return (
-    <Card>
+    <Card className="dark:bg-gray-800 dark:border-gray-700">
       <CardHeader>
         <CardTitle>Completed / Pending Tasks Monthly</CardTitle>
         <CardDescription>January - June 2024</CardDescription>
@@ -66,7 +66,8 @@ export function TaskDistributionChart() {
       </CardContent>
       <CardFooter className="flex-col items-start gap-2 text-sm">
         <div className="flex gap-2 font-medium leading-none text-neutral-500">
-          Task Completion Boosted up by 5.2% this month <TrendingUp className="h-4 w-4" />
+          Task Completion Boosted up by 5.2% this month{" "}
+          <TrendingUp className="h-4 w-4" />
         </div>
         <div className="leading-none text-muted-foreground">
           Showing total Tasks for the last 6 months

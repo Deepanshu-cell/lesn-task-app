@@ -1,4 +1,4 @@
-'use client';
+"use client";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Switch } from "@/components/ui/switch";
 import {
@@ -40,13 +40,13 @@ export function TaskActionCard({ className, selectedTask }) {
       </CardHeader>
       <CardContent className="grid gap-4">
         {/* Task Status Mark Part */}
-        <div className=" flex items-center space-x-4 rounded-md border p-4">
+        <div className=" flex items-center space-x-4 rounded-md border p-4 dark:border-gray-600">
           <ArrowLeftRight />
           <div className="flex-1 space-y-1">
             <p className="text-sm font-medium leading-none">
               Mark the status as completed
             </p>
-            <p className="text-sm text-neutral-500">
+            <p className="text-sm text-neutral-500 dark:text-neutral-400">
               you can revert your action as well.
             </p>
           </div>
@@ -61,7 +61,9 @@ export function TaskActionCard({ className, selectedTask }) {
               <p className="text-sm font-medium leading-none">
                 {selectedTask?.due_date}
               </p>
-              <p className="text-sm text-neutral-500">Due Date</p>
+              <p className="text-sm text-neutral-500 dark:text-neutral-400">
+                Due Date
+              </p>
             </div>
           </div>
         </div>
@@ -70,7 +72,9 @@ export function TaskActionCard({ className, selectedTask }) {
             <BookmarkMinus size={18} className="text-green-500" />
             <div className="space-y-1">
               <PriorityBadge priority={selectedTask?.priority || ""} />
-              <p className="text-sm text-neutral-500">Task Priority</p>
+              <p className="text-sm text-neutral-500 dark:text-neutral-400">
+                Task Priority
+              </p>
             </div>
           </div>
         </div>
@@ -81,7 +85,9 @@ export function TaskActionCard({ className, selectedTask }) {
               <p className="text-sm font-medium leading-none">
                 {selectedTask?.location_reminder || ""}
               </p>
-              <p className="text-sm text-neutral-500">Location Reminder</p>
+              <p className="text-sm text-neutral-500 dark:text-neutral-400">
+                Location Reminder
+              </p>
             </div>
           </div>
         </div>

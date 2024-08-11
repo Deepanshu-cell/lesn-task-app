@@ -1,5 +1,4 @@
 import React from "react";
-import { ScrollArea } from "../ui/scroll-area";
 
 const UpcomingTasks = () => {
   return (
@@ -10,15 +9,15 @@ const UpcomingTasks = () => {
             Upcoming Tasks
           </h5>
           <div className="indicators flex items-center space-x-3">
-            <span class="inline-flex items-center border border-neutral-200 text-green-800 text-xs font-medium px-2.5 py-0.5 rounded-full dark:bg-green-900 dark:text-green-300">
+            <span class="inline-flex items-center border border-neutral-200 dark:border-neutral-500 text-gray-800 text-xs font-medium px-2.5 py-0.5 rounded-full dark:bg-gray-900 dark:text-gray-200">
               <span class="w-2 h-2 me-1 bg-[#93c5fd] rounded-full"></span>
               Low
             </span>
-            <span class="inline-flex items-center border border-neutral-200 text-green-800 text-xs font-medium px-2.5 py-0.5 rounded-full dark:bg-green-900 dark:text-green-300">
+            <span class="inline-flex items-center border border-neutral-200 dark:border-neutral-500 text-gray-800 text-xs font-medium px-2.5 py-0.5 rounded-full dark:bg-gray-900 dark:text-gray-300">
               <span class="w-2 h-2 me-1 bg-[#60a5fa] rounded-full"></span>
               Medium
             </span>
-            <span class="inline-flex items-center border border-neutral-200 text-green-800 text-xs font-medium px-2.5 py-0.5 rounded-full dark:bg-green-900 dark:text-green-300">
+            <span class="inline-flex items-center border border-neutral-200 dark:border-neutral-500 text-gray-800 text-xs font-medium px-2.5 py-0.5 rounded-full dark:bg-gray-900 dark:text-gray-300">
               <span class="w-2 h-2 me-1 bg-[#2563eb] rounded-full"></span>
               High
             </span>

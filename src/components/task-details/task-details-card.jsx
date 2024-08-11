@@ -4,10 +4,10 @@ import { ScrollArea } from "../ui/scroll-area";
 
 const TaskDetailsCard = ({ selectedTask }) => {
   return (
-    <div className="h-[calc(100vh-10rem)] rounded-md ml-8 mt-2 mb-20 bg-white dark:bg-neutral-600 w-full p-5">
+    <div className="h-[calc(100vh-10rem)] rounded-md ml-8 mt-2 mb-20 bg-white dark:bg-gray-700 w-full p-5">
       
       {/* task actions here */}
-      <TaskActionCard selectedTask={selectedTask}/>
+      <TaskActionCard selectedTask={selectedTask} className={'dark:bg-gray-800 dark:border-gray-700'}/>
 
       {/* Task description */}
       <ScrollArea className='h-[calc(100vh-36rem)] p-3 m-2'>

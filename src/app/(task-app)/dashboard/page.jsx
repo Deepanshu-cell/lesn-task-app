@@ -21,7 +21,7 @@ const page = () => {
       <Header breadcrumbArray={breadcrumbArray} pageTitle={"Dashboard"} />
 
       {/* Dashboard Charts starts here */}
-      <div className="rounded-md mt-2 mb-10 bg-white dark:bg-neutral-600 w-full p-5">
+      <div className="rounded-md mt-2 mb-10 bg-white dark:bg-gray-700 w-full p-5">
         <ScrollArea className="h-[calc(100vh-14rem)] rounded-md px-3">
           <div className="chart-container flex flex-col gap-3">
             <div className="grid md:grid-cols-2 grid-cols-1 gap-3">

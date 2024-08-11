@@ -48,7 +48,7 @@ export function TaskPriorityChart() {
   }, []);
 
   return (
-    <Card className="flex flex-col">
+    <Card className="flex flex-col dark:bg-gray-800 dark:border-gray-700">
       <CardHeader className="items-center pb-0">
         <CardTitle>Task Priority Distribution Chart</CardTitle>
         <CardDescription>Priority Distribution</CardDescription>
@@ -83,14 +83,14 @@ export function TaskPriorityChart() {
                         <tspan
                           x={viewBox.cx}
                           y={viewBox.cy}
-                          className="fill-foreground text-3xl font-bold"
+                          className="fill-foreground text-3xl font-bold dark:fill-white"
                         >
                           {totalTasks.toLocaleString()}
                         </tspan>
                         <tspan
                           x={viewBox.cx}
                           y={(viewBox.cy || 0) + 24}
-                          className="fill-muted-foreground"
+                          className="fill-muted-foreground dark:fill-white"
                         >
                           Total Tasks
                         </tspan>
